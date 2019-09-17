@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  mssql:
+    image: microsoft-mssql-server:2019-CTP3.2-ubuntu
+
+  tagetik:
