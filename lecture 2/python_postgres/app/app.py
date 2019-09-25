@@ -4,7 +4,6 @@ import time
 import psycopg2
 import logging
 
-# TODO
 # ENV variables
 DB_HOST = os.getenv('DB_HOST', 'localhost')
 DB_NAME = os.getenv('DB_NAME', 'dev')
