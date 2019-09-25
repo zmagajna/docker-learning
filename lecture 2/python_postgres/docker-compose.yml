@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:11.5-alpine
+    container_name: postgres_dev
+    environment:
+      POSTGRES_USER: 'dev_user'
+      POSTGRES_PASSWORD: 'dev_pass'
+      POSTGRES_DB: dev
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d dev']
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 50m
+
+  simple_app:
+    build: ./app/
+    image: simple_app:0.0.1
+    restart: always
+    environment:
+      DB_HOST: docker-postgresql
+      DB_NAME: dev
+      DB_USERNAME: dev_user
+      DB_PASSWORD: dev_pass
+    depends_on:
+      - postgresql
+    links:
+      - postgresql:docker-postgresql
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 50m
