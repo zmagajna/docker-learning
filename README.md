@@ -8,3 +8,10 @@ git push <- to push changes
 
 git pull <- to pull changes when someone else added adds code
 ```
+
+# DOCKER
+
+```
+docker-compose up -d --build <- start docker containes
+docker-compose down <- stop docker containers
+```
