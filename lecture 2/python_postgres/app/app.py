@@ -4,6 +4,7 @@ import time
 import psycopg2
 import logging
 
+# TODO
 # ENV variables
 DB_HOST = os.getenv('DB_HOST', 'localhost')
 DB_NAME = os.getenv('DB_NAME', 'dev')
@@ -16,7 +17,6 @@ logging.basicConfig(level=logging.INFO,format='[%(asctime)s] [%(levelname)s] %(m
 
 def connect():
   return psycopg2.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, port=DB_PORT, dbname=DB_NAME)
-
 
 def select(conn, sql):
   with conn.cursor() as cur:
