@@ -11,7 +11,7 @@ DB_NAME = os.getenv('DB_NAME', 'dev')
 DB_USERNAME = os.getenv('DB_USERNAME', 'postgres')
 DB_PASSWORD = os.getenv('DB_PASSWORD', 'root')
 DB_PORT = os.getenv('DB_PORT', '5432')
-COUNTER = os.getenv('ENV_VAR', '1')
+COUNTER = os.getenv('COUNTER', '0')
 
 # Define logging LEVEL, output type
 logging.basicConfig(level=logging.INFO,format='[%(asctime)s] [%(levelname)s] %(message)s')
