@@ -14,4 +14,8 @@ git pull <- to pull changes when someone else added adds code
 ```
 docker-compose up -d --build <- start docker containes
 docker-compose down <- stop docker containers
+docker ps <- show all live containers
+docker ps -a <- show all containers
+docker logs -f containerid <- show logs
+ctrl+c
 ```

@@ -11,6 +11,7 @@ DB_NAME = os.getenv('DB_NAME', 'dev')
 DB_USERNAME = os.getenv('DB_USERNAME', 'postgres')
 DB_PASSWORD = os.getenv('DB_PASSWORD', 'root')
 DB_PORT = os.getenv('DB_PORT', '5432')
+COUNTER = os.getenv('ENV_VAR', '1')
 
 # Define logging LEVEL, output type
 logging.basicConfig(level=logging.INFO,format='[%(asctime)s] [%(levelname)s] %(message)s')
@@ -44,22 +45,37 @@ def close(conn):
 def main():
   connection = connect()
   logging.info("Got connection {}".format(connection))
-  execute(connection, "CREATE TABLE IF NOT EXISTS test (id serial, number int);", [])
+  execute(connection, "CREATE TABLE IF NOT EXISTS test (id serial, counter int, number int);", [])
   close(connection)
   i = 0
+  r = 1
+
+  counter_int = int(COUNTER)
 
   while(True):
     logging.info("Start with DB")
 
     connection = connect()
     logging.info("Got connection {}".format(connection))
+
+    if counter_int >= 30:
+      counter_int=0
+     
+    if counter_int%3 == 0:
+      r = counter_int*1000
+    elif counter_int%5==0:
+      r = 0
+    else:
+      r = 1
+
     
-    execute(connection, "INSERT INTO test(number) VALUES (%s);", [i,])
+    execute(connection, "INSERT INTO test(counter,number) VALUES (%s,%s);", [counter_int,r])
     records = select(connection, "SELECT * FROM test;")
     logging.info("Selected record {}".format(records))
 
     close(connection)
     i += 1
+    counter_int += 1
     time.sleep(15)
 
 
