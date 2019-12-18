@@ -18,7 +18,7 @@ docker ps <- show all live containers
 docker ps -a <- show all containers
 docker logs -f containerid <- show logs
 ctrl+c
-docker build builds a new image from the source code.
-docker create creates a writeable container from the image and prepares it for running.
-docker run creates the container (same as docker create) and runs it
+docker build -> builds a new image from the source code.
+docker create -> creates a writeable container from the image and prepares it for running.
+docker run  -> creates the container (same as docker create) and runs it
 ```
