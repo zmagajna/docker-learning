@@ -2,3 +2,6 @@ git branch <branchname> -> creates new local branch
 git push -u origin <created new branchname> -> adds new branch to gihub repo
 git checkout <branchname> -> change branch
 git rebase -> read: https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase 
+git branch -d <branchname> -> delete branch localy
+git push origin --delete <branchname> -> delete branch on github
+git merge <branchname> -> merge specified branch's history into the current one (if somebody changed develop branch,then before I make pull request I have to merge latest version of develop with my feature changes) 
