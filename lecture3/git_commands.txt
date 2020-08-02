@@ -1,5 +1,4 @@
 git branch <branchname> -> creates new local branch
 git push -u origin <created new branchname> -> adds new branch to gihub repo
 git checkout <branchname> -> change branch
- 
- 
+git rebase -> read: https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase 
