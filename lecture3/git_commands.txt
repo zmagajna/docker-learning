@@ -1,0 +1,5 @@
+git branch <branchname> -> creates new local branch
+git push -u origin <created new branchname> -> adds new branch to gihub repo
+git checkout <branchname> -> change branch
+ 
+ 
