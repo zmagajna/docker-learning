@@ -9,4 +9,6 @@ git merge <branchname> -> merge specified branch's history into the current one 
 
 
 # TODO
-- 
+- describe `git status`
+- describe `git clone`
+- ... 
